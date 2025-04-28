@@ -1,3 +1,8 @@
 <ul>
     <li >Menu one - 1</li>
+    <li ><a routerLink="/dashboard">Dashboard</a></li>
+
+    <li *ngFor="let module of moduleArray; let i=index">
+        <a routerLink="${module}" (click)="onModuleClick(module)">{{module}} </a>
+    </li>
 </ul>

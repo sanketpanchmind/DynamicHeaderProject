@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: '', component: SecureComponent },
   
   { path: 'main-menu', loadChildren: () => import('../../modules/afterLogin/main-menu/main-menu.module').then(m => m.MainMenuModule) },
+  { path: 'dashboard', loadChildren: () => import('../../modules/afterLogin/dashboard/dashboard.module').then(m => m.DashboardModule) },
+
 ];
 
 @NgModule({

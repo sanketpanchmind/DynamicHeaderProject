@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DynamicheaderService } from 'src/app/core/services/dynamicheader.service';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  activeModule: any = '';
 
+
+  constructor(private dynamicheader: DynamicheaderService){
+
+  }
+  ngOnInit(){
+    this.dynamicheader.selectedModuleChanged.subscribe((res: any) =>{
+        this.activeModule = res;
+        console.log("In Header Componet -- ",this.activeModule);
+      }
+    );
+  }
 }
