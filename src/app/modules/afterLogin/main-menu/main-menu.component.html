@@ -3,6 +3,6 @@
     <li ><a routerLink="/dashboard">Dashboard</a></li>
 
     <li *ngFor="let module of moduleArray; let i=index">
-        <a routerLink="${module}" (click)="onModuleClick(module)">{{module}} </a>
+        <a [routerLink]="[module.name]" (click)="onModuleClick(module.name)">{{module.name}} </a>
     </li>
 </ul>

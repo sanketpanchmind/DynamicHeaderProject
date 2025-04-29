@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DynamicheaderService } from 'src/app/core/services/dynamicheader.service';
+import { moduleArray } from 'src/app/modules/afterLogin/main-menu/main-menu.component';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,8 @@ import { DynamicheaderService } from 'src/app/core/services/dynamicheader.servic
 })
 export class HeaderComponent {
   activeModule: any = '';
-
+  activeSubMenu: any[] =[];
+  selectedModule: any = '';
 
   constructor(private dynamicheader: DynamicheaderService){
 
@@ -20,7 +22,13 @@ export class HeaderComponent {
     this.dynamicheader.selectedModuleChanged.subscribe((res: any) =>{
       console.log("Inside subscribe", res);
         this.activeModule = res;
-        console.log("In Header Componet -- ",this.activeModule);
+        const module = this.dynamicheader.getSeletedModule();
+        console.log("Module print in header comp --", module);
+        
+        console.log(moduleArray);
+        this.selectedModule = moduleArray.find((mod: any) => mod.name === module);
+
+        console.log("selected modules  -- ",this.selectedModule.submenu);
       }
     );  
   }
