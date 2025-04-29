@@ -16,7 +16,8 @@ export class MainMenuComponent {
 
   onModuleClick(modulename: string){
     console.log(modulename);
-
+    this.dynamicheader.setSelectedModule(modulename);
+    console.log('Setting module: ', modulename);
     this.router.navigate([`/${modulename}`]);
   }
 }

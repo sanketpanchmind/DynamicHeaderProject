@@ -14,13 +14,14 @@ export class HeaderComponent {
 
   }
   ngOnInit(){
+    console.log('Header ngOnInit');
     this.activeModule = this.dynamicheader.getSeletedModule();
     
     this.dynamicheader.selectedModuleChanged.subscribe((res: any) =>{
+      console.log("Inside subscribe", res);
         this.activeModule = res;
         console.log("In Header Componet -- ",this.activeModule);
       }
     );  
-   
   }
 }

@@ -12,6 +12,7 @@ export class DynamicheaderService {
 
 
   setSelectedModule(modulename: string){
+    console.log('Setting module: ', modulename);
     this.selectedModule = modulename;
     this.selectedModuleChanged.emit(this.selectedModule);
   }
